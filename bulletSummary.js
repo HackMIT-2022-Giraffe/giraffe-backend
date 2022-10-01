@@ -1,4 +1,3 @@
-const {levelToDavinciTemperature} = require("./openaiSettings");
 
 // requires "Tl;dr" at end of string to know to summarize
 async function bulletSummary(openai, inputText) {
