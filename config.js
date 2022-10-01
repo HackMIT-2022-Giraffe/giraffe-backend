@@ -1,7 +1,8 @@
-import { Configuration } from "openai"
+const { Configuration } = require( "openai" );
 
 require("dotenv").config()
 
-export const OpenAIConfiguration = new Configuration({
+
+exports.OpenAIConfiguration =  new Configuration({
     apiKey: process.env.OPENAI_KEY
 });
