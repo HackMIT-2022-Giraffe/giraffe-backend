@@ -24,17 +24,23 @@ app.use(
 
 // https://attacomsian.com/blog/uploading-files-nodejs-express
 app.post("/send-pdf", (req, res) => {
-  console.log(req.body.file);
+  console.log(req.body);
   axios
     .post(pdf_parser_api + "/upload", {
       pdf: req.body.file,
       uuid: uuid,
+    }, {
+        headers: {
+            'Access-Control-Allow-Origin': '*'
+        }
     })
     .then((response) => {
+      res.send(response);
       console.log(response);
       console.log(response.headers);
     })
     .catch((error) => {
+      res.send(error);
       console.log(error);
     });
 });
